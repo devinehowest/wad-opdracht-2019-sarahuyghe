@@ -9,6 +9,8 @@ const Movies = ({ movies }) => {
 	));
 };
 
-Movies.propTypes = {};
+Movies.propTypes = {
+	movies: PropTypes.object.isRequired
+};
 
 export default Movies;
