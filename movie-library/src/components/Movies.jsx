@@ -1,19 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Movie from "./Movie";
+import { inject, observer } from "mobx-react";
 
-const Movies = ({ movies }) => {
+const Movies = ({ store }) => {
+	const { movies } = store;
 	// console.log(movies);
-	movies.map((movie, i) => {
-		return <Movie key={i} movie={movie} />;
-		// console.log(movie);
-	});
+	return <></>;
+	// movies.map((movie, i) => {
+	// 	return <Movie key={i} movie={movie} />;
+	// });
 
 	// Object.keys(movies).map(key => <Movie movie={movies[key]} key={key} />);
 };
 
-Movies.propTypes = {
-	movies: PropTypes.object.isRequired
-};
+// Movies.propTypes = {
+// 	movies: PropTypes.object.isRequired
+// };
 
-export default Movies;
+export default inject("store")(observer(Movies));
