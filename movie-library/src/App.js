@@ -13,10 +13,6 @@ class App extends Component {
 		this.apiKey = process.env.REACT_APP_MovieDB_API;
 	}
 
-	addNewMovie = movie => {
-		console.log(movie);
-	};
-
 	handleClick = () => {
 		fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}`)
 			.then(r => r.json())
