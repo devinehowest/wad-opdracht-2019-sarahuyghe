@@ -4,9 +4,12 @@ import Movie from "./Movie";
 
 const Movies = ({ movies }) => {
 	// console.log(movies);
-	return Object.keys(movies).map(key => (
-		<Movie movie={movies[key]} key={key} />
-	));
+	movies.map((movie, i) => {
+		return <Movie key={i} movie={movie} />;
+		// console.log(movie);
+	});
+
+	// Object.keys(movies).map(key => <Movie movie={movies[key]} key={key} />);
 };
 
 Movies.propTypes = {

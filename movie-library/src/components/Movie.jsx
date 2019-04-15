@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Movie = ({ movie: { title, overview } }) => {
-	// console.log(movie);
+const Movie = ({ movie }) => {
+	console.log(movie);
 	return (
 		<>
-			<h1>{title}</h1>
-			<p>{overview}</p>
+			{
+				<p>test</p>
+				/* <h1>{title}</h1>
+			<p>{overview}</p> */
+			}
 		</>
 	);
 };

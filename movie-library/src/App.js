@@ -3,29 +3,70 @@ import React, { Component } from "react";
 import "./App.css";
 
 import Movies from "./components/Movies";
+import Movie from "./components/Movie";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			movies: {
-				1: {
-					title: "Captain marvel",
-					overview:
-						"The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe."
-				},
-				2: {
-					title: "Bumblebee",
-					overview:
-						"On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken. When Charlie revives him, she quickly learns this is no ordinary yellow VW bug."
-				}
-			}
+			movies: []
 		};
+		this.apiKey = process.env.REACT_APP_MovieDB_API;
+		// console.log(this.apiKey);
+
+		// fetch(
+		// 	`https://api.themoviedb.org/3/movie/top_rated?api_key=62b6ebfe3d6498b7c85dfc5764245b5d`
+		// )
+		// 	.then(r => r.json())
+		// 	// .then(moviesdb => Object.keys(moviesdb).forEach(this.addDB));
+		// 	// .then(db => )
+		// 	// .then(movies => console.log(movies.results));
+		// 	.then(movies => this.setState({ movies: [...movies.results] }));
+		// Object.keys(movies).forEach(this.addMovie));
 	}
+
+	// addDB = db => {
+	// 	console.log(db);
+	// 	Object.keys(db).forEach(results => console.log(results));
+	// };
+
+	// addMovie = movies => {
+	// 	// console.log(movie.title);
+	// 	// movies.map((movie, i) => console.log(movie.title));
+	// 	movies.map((movie, i) => <Movie movie={movie} key={i} />);
+	// 	// Object.keys(movie).forEach(this.addNewMovie);
+	// };
+
+	addNewMovie = movie => {
+		console.log(movie);
+	};
+
+	componentWillMount;
+
+	handleClick = () => {
+		// const { apiKey } = this.string;
+		fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}`)
+			.then(r => r.json())
+			// .then(moviesdb => Object.keys(moviesdb).forEach(this.addDB));
+			// .then(db => )
+			// .then(movies => console.log(movies.results));
+			.then(movies => this.setState({ movies: [...movies.results] }));
+	};
+
 	render() {
+		const { movies } = this.state;
+		console.log(movies);
+		// console.log(this.apiKey);
 		// const { title } = this.state;
 		// const { overview } = this.state;
-		return <Movies movies={this.state.movies} />;
+		return (
+			<>
+				<button onClick={this.handleClick} />
+				{/* <Movies movies={this.state.movies} />; */}
+			</>
+		);
+		// <Movies movies={this.state.movies} />;
+		// <></>;
 	}
 }
 
