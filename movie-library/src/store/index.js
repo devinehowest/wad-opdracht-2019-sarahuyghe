@@ -10,13 +10,11 @@ class Store {
 	constructor() {
 		fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}`)
 			.then(r => r.json())
-			// .then(data => console.log(data.results));
-			.then(data => this.movies.push(data.results));
-		console.log(this.movies);
+			.then(d => d.results.forEach(data => this._addMovie(data)));
 	}
 
-	_addMovie = ({ title, id }) => {
-		const movie = new Movie(title, id);
+	_addMovie = data => {
+		const movie = new Movie(data.title, data.id);
 		runInAction(() => this.movies.push(movie));
 		// console.log(this.movies);
 	};
@@ -24,7 +22,7 @@ class Store {
 
 decorate(Store, {
 	movies: observable,
-	alterArray: action
+	_addMovie: action
 });
 
 export default new Store();

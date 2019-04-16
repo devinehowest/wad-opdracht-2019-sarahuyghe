@@ -5,8 +5,20 @@ import { inject, observer } from "mobx-react";
 
 const Movies = ({ store }) => {
 	const { movies } = store;
-	// console.log(movies);
-	return <></>;
+	// console.dir(movies.toJS());
+	console.log(movies);
+	return (
+		<>
+			{" "}
+			{movies.map((movie, index) => (
+				<li key={index}>
+					<span>{movie.title}</span>
+					<br />
+					<span>{movie.vote_count}</span>
+				</li>
+			))}
+		</>
+	);
 	// movies.map((movie, i) => {
 	// 	return <Movie key={i} movie={movie} />;
 	// });
