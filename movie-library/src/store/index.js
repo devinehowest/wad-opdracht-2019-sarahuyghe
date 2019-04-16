@@ -14,9 +14,10 @@ class Store {
 	}
 
 	_addMovie = data => {
-		const movie = new Movie(data.title, data.id);
+		// console.log(data);
+		const movie = new Movie(data);
 		runInAction(() => this.movies.push(movie));
-		// console.log(this.movies);
+		console.log(this.movies);
 	};
 }
 

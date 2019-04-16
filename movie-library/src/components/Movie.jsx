@@ -5,11 +5,8 @@ const Movie = ({ movie }) => {
 	console.log(movie);
 	return (
 		<>
-			{
-				<p>test</p>
-				/* <h1>{title}</h1>
-			<p>{overview}</p> */
-			}
+			<img src={movie.poster} alt="test" />
+			<p>{movie.title}</p>
 		</>
 	);
 };

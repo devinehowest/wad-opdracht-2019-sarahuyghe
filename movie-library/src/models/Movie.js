@@ -1,8 +1,9 @@
 import uuid from "uuid";
 class Movie {
-	constructor(title, id = uuid.v4()) {
+	constructor(data, id = uuid.v4()) {
 		this.id = id;
-		this.title = title;
+		this.title = data.title;
+		this.poster = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
 	}
 }
 
