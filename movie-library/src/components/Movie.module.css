@@ -1,0 +1,14 @@
+img {
+  border-radius: 8%;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  composes: subTitle from "./../Typo.module.css";
+  font-size: 25px;
+}

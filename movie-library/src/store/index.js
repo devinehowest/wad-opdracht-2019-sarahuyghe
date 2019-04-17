@@ -8,7 +8,7 @@ class Store {
 	apiKey = process.env.REACT_APP_MovieDB_API;
 
 	constructor() {
-		fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}`)
+		fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}`)
 			.then(r => r.json())
 			.then(d => d.results.forEach(data => this._addMovie(data)));
 	}
