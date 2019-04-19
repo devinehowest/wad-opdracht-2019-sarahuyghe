@@ -30,7 +30,11 @@ class Store {
 			headers: {
 				"Content-Type": "application/json"
 			},
-			body: JSON.stringify({ title: movie.title, id: movie.id })
+			body: JSON.stringify({
+				title: movie.title,
+				id: movie.id,
+				poster: movie.poster
+			})
 		};
 		fetch("http://localhost:4000/watchlist", options)
 			.then(r => r.json())
@@ -38,11 +42,9 @@ class Store {
 	};
 
 	_addMovieWatchList = movie => {
-		console.log(movie);
+		console.log(movie.poster);
 		const newItem = new MovieWatchList(movie);
-		// console.log(newItem);
 		runInAction(() => this.watchlist.push(newItem));
-		// console.log(this.watchlist);
 	};
 }
 

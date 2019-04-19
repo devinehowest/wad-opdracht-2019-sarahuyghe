@@ -8,7 +8,7 @@ import styles from "../Typo.module.css";
 const Movies = ({ store }) => {
 	const { movies } = store;
 	const { watchlist } = store;
-	// console.log(watchlist);
+
 	return (
 		<>
 			<h1 className={styles.mainTitle}>Discover</h1>
@@ -26,8 +26,8 @@ const Movies = ({ store }) => {
 	);
 };
 
-// Movies.propTypes = {
-// 	store: PropTypes.object.isRequired
-// };
+Movies.propTypes = {
+	store: PropTypes.object.isRequired
+};
 
 export default inject("store")(observer(Movies));

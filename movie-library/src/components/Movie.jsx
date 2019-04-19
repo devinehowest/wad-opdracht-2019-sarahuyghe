@@ -8,23 +8,29 @@ import store from "./../store";
 const Movie = ({ movie }) => {
 	const titleInput = React.createRef();
 	const idMovie = React.createRef();
+	const movieImage = React.createRef();
 
 	const apiKey = process.env.REACT_APP_MovieDB_API;
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		// console.log(idMovie.current.id);
-		// console.log(titleInput.current.textContent);
 		store.addMovieWatchlist({
 			title: titleInput.current.textContent,
-			id: idMovie.current.id
+			id: idMovie.current.id,
+			poster: movieImage.current.src
 		});
 	};
 
 	return (
 		<>
 			<div id={movie.id} ref={idMovie}>
-				<img src={movie.poster} alt="test" width="320" height="474" />
+				<img
+					src={movie.poster}
+					alt="test"
+					width="320"
+					height="474"
+					ref={movieImage}
+				/>
 				<form onSubmit={handleSubmit}>
 					<p className={styles.title} ref={titleInput}>
 						{movie.title}
