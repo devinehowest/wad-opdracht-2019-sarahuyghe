@@ -1,0 +1,32 @@
+{
+  "watchlist": [
+    {
+      "id": 1,
+      "title": "shazam"
+    },
+    {
+      "title": "paddington",
+      "id": 2
+    },
+    {
+      "title": "Spider-Man: Into the Spider-Verse",
+      "id": 3
+    },
+    {
+      "title": "Cars",
+      "id": "3d7a052f-ce18-4937-8f31-f5822bef882f"
+    },
+    {
+      "title": "Shazam!",
+      "id": "c0babdd6-590b-4256-8e0f-06be08e78ed9"
+    },
+    {
+      "title": "Shazam!",
+      "id": "287947"
+    },
+    {
+      "title": "Hellboy",
+      "id": "456740"
+    }
+  ]
+}
