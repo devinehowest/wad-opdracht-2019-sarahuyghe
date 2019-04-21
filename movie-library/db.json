@@ -1,14 +1,22 @@
 {
-	"watchlist": [
-		{
-			"title": "How to Train Your Dragon: The Hidden World",
-			"id": "166428",
-			"poster": "https://image.tmdb.org/t/p/w500//xvx4Yhf0DVH8G4LzNISpMfFBDy2.jpg"
-		},
-		{
-			"title": "Avengers: Infinity War",
-			"id": "299536",
-			"poster": "https://image.tmdb.org/t/p/w500//7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
-		}
-	]
+  "watchlist": [
+    {
+      "title": "Black Panther",
+      "movieId": "284054",
+      "poster": "https://image.tmdb.org/t/p/w500//uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+      "id": 1
+    },
+    {
+      "title": "Redcon-1",
+      "movieId": "485811",
+      "poster": "https://image.tmdb.org/t/p/w500//jOYUbe61DQiY628inVkR1KERS30.jpg",
+      "id": 2
+    },
+    {
+      "title": "Kamen Rider Heisei Generations FOREVER",
+      "movieId": "543103",
+      "poster": "https://image.tmdb.org/t/p/w500//6sOFQDlkY6El1B2P5gklzJfVdsT.jpg",
+      "id": 3
+    }
+  ]
 }

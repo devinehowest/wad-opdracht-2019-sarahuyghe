@@ -11,13 +11,16 @@ const Movies = ({ store }) => {
 
 	return (
 		<>
-			<h1 className={styles.mainTitle}>Discover</h1>
 			<section>
+				<h1 className={styles.mainTitle}>Discover</h1>
+
 				{movies.map((movie, index) => (
 					<Movie key={index} movie={movie} />
 				))}
 			</section>
 			<section>
+				<h1 className={styles.mainTitle}>Watchlist</h1>
+
 				{watchlist.map((watchlist, index) => (
 					<Movie key={index} movie={watchlist} />
 				))}

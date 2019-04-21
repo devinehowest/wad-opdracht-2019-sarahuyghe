@@ -1,21 +1,25 @@
 import { configure, decorate, observable, runInAction, action } from "mobx";
 import Movie from "../models/Movie";
 import MovieWatchList from "../models/MovieWatchList";
+import Api from "../api";
 
 configure({ enforceActions: `observed` });
 
 class Store {
 	movies = [];
-	apiKey = process.env.REACT_APP_MovieDB_API;
 	watchlist = [];
 
 	constructor() {
-		fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}`)
-			.then(r => r.json())
+		this.api = new Api();
+
+		this.api
+			.getAllMovies()
+			// .then(d => d.results.forEach(data => console.log(data.title)));
 			.then(d => d.results.forEach(data => this._addMovie(data)));
-		fetch("http://localhost:4000/watchlist")
-			.then(r => r.json())
-			.then(data => data.forEach(data => this._addMovieWatchList(data)));
+
+		this.api
+			.getAllMoviesOnWatchList()
+			.then(d => d.forEach(data => this._addMovieWatchList(data)));
 	}
 
 	_addMovie = data => {
@@ -24,7 +28,7 @@ class Store {
 	};
 
 	addMovieWatchlist = movie => {
-		console.log(movie);
+		// console.log(movie);
 		const options = {
 			method: "POST",
 			headers: {
@@ -32,7 +36,7 @@ class Store {
 			},
 			body: JSON.stringify({
 				title: movie.title,
-				id: movie.id,
+				movieId: movie.movieId,
 				poster: movie.poster
 			})
 		};
@@ -41,9 +45,8 @@ class Store {
 			.then(book => this._addMovieWatchList(book));
 	};
 
-	_addMovieWatchList = movie => {
-		console.log(movie.poster);
-		const newItem = new MovieWatchList(movie);
+	_addMovieWatchList = (movie, id) => {
+		const newItem = new MovieWatchList(movie, id);
 		runInAction(() => this.watchlist.push(newItem));
 	};
 }

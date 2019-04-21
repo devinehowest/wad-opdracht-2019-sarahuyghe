@@ -14,16 +14,17 @@ const Movie = ({ movie }) => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		console.log(idMovie.current.id);
 		store.addMovieWatchlist({
 			title: titleInput.current.textContent,
-			id: idMovie.current.id,
+			movieId: idMovie.current.id,
 			poster: movieImage.current.src
 		});
 	};
 
 	return (
 		<>
-			<div id={movie.id} ref={idMovie}>
+			<div id={movie.movieId} ref={idMovie}>
 				<img
 					src={movie.poster}
 					alt="test"
@@ -39,7 +40,7 @@ const Movie = ({ movie }) => {
 				</form>
 				<a
 					href={`https://api.themoviedb.org/3/movie/${
-						movie.id
+						movie.movieId
 					}?api_key=${apiKey}`}
 				>
 					detail
