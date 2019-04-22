@@ -34,8 +34,8 @@ class Store {
 			.then(movieValues => newMovie.updateFromServer(movieValues));
 	};
 
-	_addMovieWatchList = movie => {
-		const newItem = new MovieWatchList(movie);
+	_addMovieWatchList = ({ movie, _id }) => {
+		const newItem = new MovieWatchList(movie, _id);
 		runInAction(() => this.watchlist.push(newItem));
 	};
 

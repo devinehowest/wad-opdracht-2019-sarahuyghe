@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./Movie.module.css";
 
-import store from "./../store";
+import store from "../store";
 
 const Movie = ({ movie, onDelete }) => {
 	const titleInput = React.createRef();

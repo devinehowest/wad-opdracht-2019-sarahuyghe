@@ -20,7 +20,7 @@ class MovieWatchList {
 	}
 
 	updateFromServer = values => {
-		this.setId(values.id);
+		this.setId(values._id);
 		this.setTitle(values.title);
 		this.setMovieId(values.movieId);
 		this.setPoster(values.poster);
