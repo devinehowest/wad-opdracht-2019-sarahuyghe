@@ -29,14 +29,13 @@ class Store {
 	addMovieWatchList = data => {
 		const newMovie = new MovieWatchList(data);
 		this.watchlist.push(newMovie);
-		// this.api.create(newMovie.values).then(movie => newMovie.setId(movie.id));
 		this.api
 			.create(newMovie)
 			.then(movieValues => newMovie.updateFromServer(movieValues));
 	};
 
-	_addMovieWatchList = (movie, id) => {
-		const newItem = new MovieWatchList(movie, id);
+	_addMovieWatchList = movie => {
+		const newItem = new MovieWatchList(movie);
 		runInAction(() => this.watchlist.push(newItem));
 	};
 

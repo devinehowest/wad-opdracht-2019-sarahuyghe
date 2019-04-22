@@ -15,14 +15,14 @@ class Api {
 
 	create = async movie => {
 		const r = await fetch(
-			"http://localhost:4000/watchlist",
+			`http://localhost:4000/watchlist`,
 			this.getOptions("post", movie.values)
 		);
 		return await r.json();
 	};
 
 	delete = async movie => {
-		console.log(movie);
+		console.log(movie.id);
 		const r = await fetch(
 			`http://localhost:4000/watchlist/${movie.id}`,
 			this.getOptions("delete")

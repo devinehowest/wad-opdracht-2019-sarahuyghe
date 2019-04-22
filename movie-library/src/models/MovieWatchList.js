@@ -1,9 +1,10 @@
 import uuid from "uuid";
 import { decorate, observable, action, computed } from "mobx";
 
-class Movie {
+class MovieWatchList {
 	constructor(data, id = uuid.v4()) {
 		this.id = id;
+		// console.log(id);
 		this.movieId = data.movieId;
 		this.title = data.title;
 		this.poster = data.poster;
@@ -26,16 +27,16 @@ class Movie {
 	};
 }
 
-decorate(Movie, {
+decorate(MovieWatchList, {
 	id: observable,
-	setId: action,
-	values: computed,
 	title: observable,
 	movieId: observable,
 	poster: observable,
+	setId: action,
 	setTitle: action,
 	setMovieId: action,
-	setPoster: action
+	setPoster: action,
+	values: computed
 });
 
-export default Movie;
+export default MovieWatchList;
