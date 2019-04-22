@@ -14,7 +14,6 @@ class Store {
 
 		this.api
 			.getAllMovies()
-			// .then(d => d.results.forEach(data => console.log(data.title)));
 			.then(d => d.results.forEach(data => this._addMovie(data)));
 
 		this.api
@@ -27,35 +26,33 @@ class Store {
 		runInAction(() => this.movies.push(movie));
 	};
 
-	addMovieWatchlist = movie => {
-		// console.log(movie);
-		const options = {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				title: movie.title,
-				movieId: movie.movieId,
-				poster: movie.poster
-			})
-		};
-		fetch("http://localhost:4000/watchlist", options)
-			.then(r => r.json())
-			.then(book => this._addMovieWatchList(book));
+	addMovieWatchList = data => {
+		const newMovie = new MovieWatchList(data);
+		this.watchlist.push(newMovie);
+		// this.api.create(newMovie.values).then(movie => newMovie.setId(movie.id));
+		this.api
+			.create(newMovie)
+			.then(movieValues => newMovie.updateFromServer(movieValues));
 	};
 
 	_addMovieWatchList = (movie, id) => {
 		const newItem = new MovieWatchList(movie, id);
 		runInAction(() => this.watchlist.push(newItem));
 	};
+
+	deleteMovieWatchList = movie => {
+		this.watchlist.remove(movie);
+		this.api.delete(movie);
+	};
 }
 
 decorate(Store, {
 	movies: observable,
 	watchlist: observable,
+	addMovieWatchList: action,
 	_addMovie: action,
-	_addMovieWatchList: action
+	_addMovieWatchList: action,
+	deleteMovieWatchList: action
 });
 
 export default new Store();

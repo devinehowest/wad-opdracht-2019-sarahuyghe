@@ -12,6 +12,36 @@ class Api {
 		const r = await fetch(`http://localhost:4000/watchlist`);
 		return await r.json();
 	};
+
+	create = async movie => {
+		const r = await fetch(
+			"http://localhost:4000/watchlist",
+			this.getOptions("post", movie.values)
+		);
+		return await r.json();
+	};
+
+	delete = async movie => {
+		console.log(movie);
+		const r = await fetch(
+			`http://localhost:4000/watchlist/${movie.id}`,
+			this.getOptions("delete")
+		);
+		return r.json();
+	};
+
+	getOptions = (method, body = null) => {
+		const options = {
+			method: method.toUpperCase(),
+			headers: {
+				"content-type": `application/json`
+			}
+		};
+		if (body) {
+			options.body = JSON.stringify(body);
+		}
+		return options;
+	};
 }
 
 export default Api;

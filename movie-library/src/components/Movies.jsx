@@ -22,7 +22,11 @@ const Movies = ({ store }) => {
 				<h1 className={styles.mainTitle}>Watchlist</h1>
 
 				{watchlist.map((watchlist, index) => (
-					<Movie key={index} movie={watchlist} />
+					<Movie
+						key={index}
+						movie={watchlist}
+						onDelete={store.deleteMovieWatchList}
+					/>
 				))}
 			</section>
 		</>
