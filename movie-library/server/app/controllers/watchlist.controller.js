@@ -1,13 +1,15 @@
 const Watchlist = require('../models/watchlist.model.js');
 
 exports.create = (req, res) => {
-  // if (!req.body.title) {
-  //   return res.status(500).send({err: 'title can not be empty'});
-  // }
+  console.log('testing');
+  if (!req.body.title) {
+    return res.status(500).send({err: 'title can not be empty'});
+  }
 
   const movie = new Watchlist({
     title: req.body.title,
-    authorId: req.body.authorId
+    movieId: req.body.movieId,
+    poster: req.body.poster
   });
 
   movie
@@ -16,4 +18,28 @@ exports.create = (req, res) => {
     .catch(err => {
       res.status(500).send({error: err.book || 'Error'});
     });
+};
+
+exports.findAll = async (req, res) => {
+  try {
+    const movies = await Watchlist.find();
+    res.send(movies);
+  } catch (err) {
+    res.status(500).send({err: err.movie || 'Error'});
+  }
+};
+
+exports.delete = async (req, res) => {
+  try {
+    const movie = await Watchlist.findByIdAndRemove(req.params.movieId);
+    if (!movie) {
+      return res.status(404).send('No movie found');
+    }
+    res.send(movie);
+  } catch (err) {
+    if (err.kind === 'ObjectId') {
+      return res.status(417).send('Geen geldig ID');
+    }
+    return res.status(500).send(err);
+  }
 };

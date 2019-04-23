@@ -2,12 +2,11 @@ import uuid from "uuid";
 import { decorate, observable, action, computed } from "mobx";
 
 class MovieWatchList {
-	constructor(data, id = uuid.v4()) {
+	constructor(title, movieId, poster, id = uuid.v4()) {
 		this.id = id;
-		// console.log(id);
-		this.movieId = data.movieId;
-		this.title = data.title;
-		this.poster = data.poster;
+		this.movieId = movieId;
+		this.title = title;
+		this.poster = poster;
 	}
 
 	setId = id => (this.id = id);

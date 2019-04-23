@@ -1,5 +1,8 @@
 class Api {
 	apiKey = process.env.REACT_APP_MovieDB_API;
+	constructor(entity) {
+		this.entity = entity;
+	}
 
 	getAllMovies = async () => {
 		const r = await fetch(
@@ -9,7 +12,7 @@ class Api {
 	};
 
 	getAllMoviesOnWatchList = async () => {
-		const r = await fetch(`http://localhost:4000/watchlist`);
+		const r = await fetch(`/${this.entity}`);
 		return await r.json();
 	};
 
