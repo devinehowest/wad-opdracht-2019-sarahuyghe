@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
   res.json({message: 'up and running'});
 });
 
+// require('./app/routes/auth.routes.js')(app);
 require('./app/routes/watchlist.routes.js')(app);
 
 app.listen(process.env.PORT, () => {

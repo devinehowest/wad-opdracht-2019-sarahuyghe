@@ -1,5 +1,5 @@
 class Api {
-	apiKey = process.env.REACT_APP_MovieDB_API;
+	apiKey = "62b6ebfe3d6498b7c85dfc5764245b5d";
 	constructor(entity) {
 		this.entity = entity;
 	}
@@ -12,22 +12,26 @@ class Api {
 	};
 
 	getAllMoviesOnWatchList = async () => {
+		// console.log("testing");
 		const r = await fetch(`/${this.entity}`);
 		return await r.json();
 	};
 
 	create = async movie => {
+		// console.log("createApi");
+		// console.log(movie);
 		const r = await fetch(
-			`http://localhost:4000/watchlist`,
+			`http://localhost:4000/${this.entity}`,
 			this.getOptions("post", movie.values)
 		);
+		console.log("test");
 		return await r.json();
 	};
 
 	delete = async movie => {
-		console.log(movie.id);
+		// console.log(movie.id);
 		const r = await fetch(
-			`http://localhost:4000/watchlist/${movie.id}`,
+			`http://localhost:4000/${this.entity}/${movie.id}`,
 			this.getOptions("delete")
 		);
 		return r.json();

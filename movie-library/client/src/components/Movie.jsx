@@ -9,12 +9,13 @@ const Movie = ({ movie, onDelete }) => {
 	const titleInput = React.createRef();
 	const idMovie = React.createRef();
 	const movieImage = React.createRef();
+	// console.log(movie.title);
 
 	const apiKey = process.env.REACT_APP_MovieDB_API;
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		store.addMovieWatchList({
+		store.movieStore.addMovieWatchList({
 			title: titleInput.current.textContent,
 			movieId: idMovie.current.id,
 			poster: movieImage.current.src

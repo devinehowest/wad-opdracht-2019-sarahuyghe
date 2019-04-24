@@ -5,9 +5,9 @@ import { inject, observer } from "mobx-react";
 
 import styles from "../Typo.module.css";
 
-const Movies = ({ store }) => {
-	const { movies } = store;
-	const { watchlist } = store;
+const Movies = ({ movieStore }) => {
+	const { movies } = movieStore;
+	const { watchlist } = movieStore;
 
 	return (
 		<>
@@ -25,7 +25,7 @@ const Movies = ({ store }) => {
 					<Movie
 						key={index}
 						movie={watchlist}
-						onDelete={store.deleteMovieWatchList}
+						onDelete={movieStore.deleteMovieWatchList}
 					/>
 				))}
 			</section>
@@ -34,7 +34,7 @@ const Movies = ({ store }) => {
 };
 
 Movies.propTypes = {
-	store: PropTypes.object.isRequired
+	movieStore: PropTypes.object.isRequired
 };
 
-export default inject("store")(observer(Movies));
+export default inject("movieStore")(observer(Movies));
