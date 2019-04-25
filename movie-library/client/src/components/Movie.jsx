@@ -12,7 +12,7 @@ const Movie = ({ movie, onDelete }) => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		store.movieStore.addMovieWatchList({
+		store.watchlistStore.addMovieWatchList({
 			title: title.current.textContent,
 			movieId: movie.movieId,
 			poster: movie.poster

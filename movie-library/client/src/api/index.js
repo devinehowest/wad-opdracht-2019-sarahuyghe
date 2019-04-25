@@ -12,24 +12,20 @@ class Api {
 	};
 
 	getAllMoviesOnWatchList = async () => {
-		// console.log("testing");
 		const r = await fetch(`/${this.entity}`);
 		return await r.json();
 	};
 
 	create = async movie => {
-		// console.log("createApi");
-		// console.log(movie);
 		const r = await fetch(
 			`http://localhost:4000/${this.entity}`,
 			this.getOptions("post", movie.values)
 		);
-		console.log("test");
+
 		return await r.json();
 	};
 
 	delete = async movie => {
-		// console.log(movie.id);
 		const r = await fetch(
 			`http://localhost:4000/${this.entity}/${movie.id}`,
 			this.getOptions("delete")
