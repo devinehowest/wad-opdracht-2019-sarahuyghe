@@ -1,5 +1,6 @@
 class Api {
-	apiKey = "62b6ebfe3d6498b7c85dfc5764245b5d";
+	// apiKey = "62b6ebfe3d6498b7c85dfc5764245b5d";
+	apiKey = process.env.REACT_APP_MovieDB_API;
 	constructor(entity) {
 		this.entity = entity;
 	}

@@ -28,6 +28,7 @@ const Movie = ({ movie, onDelete }) => {
 				<button value="+ Add" onClick={handleSubmit}>
 					+ Add
 				</button>
+				{/* <Link to="/MovieDetail/${}">Detail</Link> */}
 				<a
 					href={`https://api.themoviedb.org/3/movie/${
 						movie.movieId

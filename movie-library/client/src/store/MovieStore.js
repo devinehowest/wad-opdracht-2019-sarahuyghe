@@ -1,17 +1,16 @@
 import { configure, decorate, observable, runInAction, action } from "mobx";
 import Movie from "../models/Movie";
-// import MovieWatchList from "../models/MovieWatchList";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
 
 class MovieStore {
 	movies = [];
-	watchlist = [];
+
 	constructor(rootStore) {
 		this.rootStore = rootStore;
 
-		this.api = new Api(`watchlist`);
+		this.api = new Api();
 
 		this.api
 			.getAllMovies()
@@ -26,11 +25,7 @@ class MovieStore {
 
 decorate(MovieStore, {
 	movies: observable,
-	watchlist: observable,
-	addMovieWatchList: action,
-	_addMovie: action,
-	_addMovieWatchList: action,
-	deleteMovieWatchList: action
+	_addMovie: action
 });
 
 export default MovieStore;

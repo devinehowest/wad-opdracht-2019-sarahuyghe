@@ -4,7 +4,6 @@ import { decorate, observable, action, computed } from "mobx";
 class MovieWatchList {
 	constructor(title, movieId, poster, id = uuid.v4()) {
 		this.id = id;
-		// console.log(movieId);
 		this.movieId = movieId;
 		this.title = title;
 		this.poster = poster;
@@ -24,7 +23,6 @@ class MovieWatchList {
 	}
 
 	updateFromServer = values => {
-		console.log(values);
 		this.setId(values._id);
 		this.setTitle(values.title);
 		this.setMovieId(values.movieId);
