@@ -20,7 +20,6 @@ class MovieStore {
 		this.api
 			.getAllMoviesOnWatchList()
 			.then(d => d.forEach(data => this._addMovieWatchList(data)));
-		// .then(d => d.forEach(data => console.log(data)));
 	}
 
 	_addMovie = data => {
@@ -28,9 +27,8 @@ class MovieStore {
 		runInAction(() => this.movies.push(movie));
 	};
 
-	addMovieWatchList = data => {
-		const newMovie = new MovieWatchList(data);
-		// console.log(newMovie);
+	addMovieWatchList = ({ title, movieId, poster, _id }) => {
+		const newMovie = new MovieWatchList(title, movieId, poster, _id);
 		this.watchlist.push(newMovie);
 		console.log(this.watchlist);
 		this.api
@@ -39,11 +37,8 @@ class MovieStore {
 	};
 
 	_addMovieWatchList = ({ title, movieId, poster, _id }) => {
-		// console.log(title);
 		const newItem = new MovieWatchList(title, movieId, poster, _id);
-		// console.log(newItem);
 		runInAction(() => this.watchlist.push(newItem));
-		// console.log(this.watchlist);
 	};
 
 	deleteMovieWatchList = movie => {

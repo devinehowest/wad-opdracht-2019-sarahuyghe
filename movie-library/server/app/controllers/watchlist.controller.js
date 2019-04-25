@@ -1,18 +1,16 @@
 const Watchlist = require('../models/watchlist.model.js');
 
 exports.create = (req, res) => {
-  // console.log(req.body);
-  // console.log('create1');
   if (!req.body.title) {
     return res.status(500).send({err: 'title can not be empty'});
   }
-  // console.log(req.body);
+
   const movie = new Watchlist({
-    title: req.body.title.title,
-    movieId: req.body.title.movieId,
-    poster: req.body.title.poster
+    title: req.body.title,
+    movieId: req.body.movieId,
+    poster: req.body.poster
   });
-  // console.log(movie);
+
   movie
     .save()
     .then(movie => res.send(movie))
