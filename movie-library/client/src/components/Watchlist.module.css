@@ -1,0 +1,7 @@
+.displayList{
+  display: flex;
+  /* margin:3rem; */
+  
+  /* grid-template-columns: 10px repeat(3, 1rem) 10px;
+  grid-template-rows: 10px repeat(1, auto) 10px; */
+} 
