@@ -6,6 +6,9 @@ import { inject } from "mobx-react";
 import Movies from "./components/Movies";
 import Watchlists from "./components/Watchlist";
 import Navigation from "./components/navigation";
+import Login from "./components/user/Login";
+import Register from "./components/user/Register";
+
 import { ROUTES } from "./constants/";
 
 import "./styles.css";
@@ -16,6 +19,8 @@ const App = ({ uiStore }) => {
 			<Switch>
 				<Route path={ROUTES.home} exact strict component={Movies} />
 				<Route path={ROUTES.watchlist} component={Watchlists} />
+				<Route path={ROUTES.login} component={Login} />
+				<Route path={ROUTES.register} component={Register} />
 				<Route
 					path={ROUTES.landing}
 					exact

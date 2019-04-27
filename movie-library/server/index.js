@@ -7,7 +7,8 @@ require('dotenv').config();
 mongoose
   .connect(process.env.DB_URL, {
     useNewUrlParser: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useCreateIndex: true
   })
   .then(() => console.log('db connected'))
   .catch(e => {
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
   res.json({message: 'up and running'});
 });
 
-// require('./app/routes/auth.routes.js')(app);
+require('./app/routes/user.routes.js')(app);
 require('./app/routes/watchlist.routes.js')(app);
 
 app.listen(process.env.PORT, () => {

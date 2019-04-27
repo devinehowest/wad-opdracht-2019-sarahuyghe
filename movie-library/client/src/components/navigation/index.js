@@ -6,17 +6,30 @@ import { ROUTES } from "../../constants";
 const Navigation = ({ uiStore }) => {
 	return (
 		<nav>
-			<ul>
-				<li>
-					<Link to={ROUTES.home}>Home</Link>
-				</li>
-				<li>
-					<Link to={ROUTES.watchlist}>Watchlist</Link>
-				</li>
-				<li>
-					<Link to={ROUTES.login}>Login</Link>
-				</li>
-			</ul>
+			{uiStore.authUser ? (
+				<ul>
+					<li>
+						<Link to={ROUTES.home}>Home</Link>
+					</li>
+					<li>
+						<Link to={ROUTES.watchlist}>Watchlist</Link>
+					</li>
+					{/* <li>
+						<Link to={ROUTES.login}>Login</Link>
+					</li> */}
+					<li>{uiStore.authUser.name}</li>
+					<button onClick={uiStore.logout}>logout</button>
+				</ul>
+			) : (
+				<ul>
+					<li>
+						<Link to={ROUTES.login}>Sign in</Link>
+					</li>
+					<li>
+						<Link to={ROUTES.register}>Register</Link>
+					</li>
+				</ul>
+			)}
 		</nav>
 	);
 };
