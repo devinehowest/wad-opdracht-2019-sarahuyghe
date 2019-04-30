@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// const cors = require('cors');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 mongoose
@@ -18,7 +19,8 @@ mongoose
 
 const app = express();
 
-// app.use(cors());
+app.use(cors());
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -26,7 +28,6 @@ app.get('/', (req, res) => {
   res.json({message: 'up and running'});
 });
 
-// require('./app/routes/user.routes.js')(app);
 require('./app/routes/auth.routes.js')(app);
 require('./app/routes/watchlist.routes.js')(app);
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import styles from "./Movie.module.css";
+import styles from "./MovieWatchList.module.css";
 
 import store from "../store";
 
@@ -39,6 +39,7 @@ class MovieWatchlist extends Component {
 					</p>
 
 					<button
+						// className={styles.buttonAdd}
 						onClick={() => {
 							onUpdate(movie);
 							this.setWatchedMode(true);

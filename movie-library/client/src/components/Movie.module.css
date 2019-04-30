@@ -12,3 +12,22 @@ div {
   composes: subTitle from "./../Typo.module.css";
   font-size: 25px;
 }
+
+.movie {
+  grid-row-start: auto;
+}
+
+.buttonAdd {
+  color:white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: #1AA6A5;
+  border-color: #1AA6A5;
+  border-radius: 2rem;
+  padding: .2rem .8rem;
+}
+.buttonAdd:hover {
+  color: #1AA6A5;
+  background-color: white;
+   
+}

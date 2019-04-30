@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import MovieWatchlist from "./MovieWatchlist";
 import { inject, observer } from "mobx-react";
+import withAuthentication from "./auth/WithAuthentication";
 
 import styles from "../Typo.module.css";
 
@@ -36,4 +37,6 @@ Watchlist.propTypes = {
 	watchlistStore: PropTypes.object.isRequired
 };
 
-export default inject("watchlistStore")(observer(Watchlist));
+export default inject("watchlistStore")(
+	withAuthentication(observer(Watchlist))
+);

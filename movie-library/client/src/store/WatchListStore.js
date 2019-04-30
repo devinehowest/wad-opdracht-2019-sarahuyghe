@@ -1,4 +1,11 @@
-import { configure, decorate, observable, runInAction, action } from "mobx";
+import {
+	configure,
+	decorate,
+	observable,
+	runInAction,
+	action,
+	observe
+} from "mobx";
 import MovieWatchList from "../models/MovieWatchList";
 import Api from "../api";
 
@@ -10,11 +17,24 @@ class WatchListStore {
 		this.rootStore = rootStore;
 
 		this.api = new Api(`watchlist`);
+		console.log(this.rootStore.uiStore);
+		if (this.rootStore.uiStore.authUser) {
+			this.getAllMoviesOnWatchList();
+		}
+		observe(this.rootStore.uiStore, "authUser", change => {
+			if (change.newValue) {
+				this.getAllMoviesOnWatchList();
+			} else {
+				runInAction(() => (this.watchlist = []));
+			}
+		});
+	}
 
+	getAllMoviesOnWatchList = () => {
 		this.api
 			.getAllMoviesOnWatchList()
-			.then(d => d.forEach(data => this._addMovieWatchList(data)));
-	}
+			.then(d => d.forEach(this._addMovieWatchList));
+	};
 
 	addMovieWatchList = ({ title, movieId, poster, _id }) => {
 		const newMovie = new MovieWatchList(title, movieId, poster, _id);

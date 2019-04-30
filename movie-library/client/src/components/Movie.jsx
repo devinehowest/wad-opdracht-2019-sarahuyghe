@@ -28,13 +28,17 @@ class Movie extends Component {
 
 		return (
 			<>
-				<div>
+				<div className={styles.movie}>
 					<Link to={`/MovieDetail/${movie.movieId}`}>
 						<img src={movie.poster} alt="test" width="320" height="474" />
 						<p className={styles.title} ref={this.title}>
 							{movie.title}
 						</p>
-						<button value="+ Add" onClick={this.handleSubmit}>
+						<button
+							value="+ Add"
+							onClick={this.handleSubmit}
+							className={styles.buttonAdd}
+						>
 							+ Add
 						</button>
 

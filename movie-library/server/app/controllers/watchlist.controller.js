@@ -8,7 +8,8 @@ exports.create = (req, res) => {
   const movie = new Watchlist({
     title: req.body.title,
     movieId: req.body.movieId,
-    poster: req.body.poster
+    poster: req.body.poster,
+    userId: req.authUserId
   });
 
   movie

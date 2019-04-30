@@ -1,0 +1,19 @@
+.navSection{
+  background-color: #FAFAFA;
+  color: #7E7E7E;
+}
+
+li {
+  /* text-decoration: none; */
+  list-style-type: none;
+
+}
+
+.links{
+  text-decoration: none;
+  color: #7E7E7E;
+}
+
+.links:hover {
+  color: #1AA6A5
+}
