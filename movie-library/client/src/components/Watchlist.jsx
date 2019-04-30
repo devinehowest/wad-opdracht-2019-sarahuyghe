@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Movie from "./Movie";
+import MovieWatchlist from "./MovieWatchlist";
 import { inject, observer } from "mobx-react";
 
 import styles from "../Typo.module.css";
 
-const Movies = ({ watchlistStore }) => {
+const Watchlist = ({ watchlistStore }) => {
 	const { watchlist } = watchlistStore;
 
 	return (
@@ -16,10 +16,11 @@ const Movies = ({ watchlistStore }) => {
 				{watchlist.length > 0 ? (
 					<section>
 						{watchlist.map((watchlist, index) => (
-							<Movie
+							<MovieWatchlist
 								key={index}
 								movie={watchlist}
 								onDelete={watchlistStore.deleteMovieWatchList}
+								onUpdate={watchlistStore.updateWatchlist}
 							/>
 						))}
 					</section>
@@ -31,8 +32,8 @@ const Movies = ({ watchlistStore }) => {
 	);
 };
 
-Movies.propTypes = {
+Watchlist.propTypes = {
 	watchlistStore: PropTypes.object.isRequired
 };
 
-export default inject("watchlistStore")(observer(Movies));
+export default inject("watchlistStore")(observer(Watchlist));

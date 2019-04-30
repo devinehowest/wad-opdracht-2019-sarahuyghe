@@ -12,6 +12,15 @@ class Api {
 		return await r.json();
 	};
 
+	getDetailMovie = async movieId => {
+		const r = await fetch(
+			`https://api.themoviedb.org/3/movie/${movieId}?api_key=${
+				this.apiKey
+			}&language=en-US`
+		);
+		return await r.json();
+	};
+
 	getAllMoviesOnWatchList = async () => {
 		const r = await fetch(`/${this.entity}`);
 		return await r.json();
@@ -23,6 +32,14 @@ class Api {
 			this.getOptions("post", movie.values)
 		);
 
+		return await r.json();
+	};
+
+	update = async movie => {
+		const r = await fetch(
+			`http://localhost:4000/${this.entity}/${movie.id}`,
+			this.getOptions("put", movie.values)
+		);
 		return await r.json();
 	};
 

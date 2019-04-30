@@ -41,9 +41,9 @@ exports.login = async (req, res) => {
       }
     }
   } catch (error) {
-    res.status(500).send({
-      error: error.user || 'Error registering new user please try again.'
-    });
+    res
+      .status(500)
+      .send({message: 'Internal error, please try again', error});
   }
 };
 
@@ -59,9 +59,7 @@ exports.register = (req, res) => {
   const user = new User({email, password, name});
   user.save(err => {
     if (err) {
-      res.status(500).send({
-        error: err.user || 'Error registering new user please try again.'
-      });
+      res.status(500).send('Error registering new user please try again.');
     } else {
       res.status(200).send('Welcome to the club!');
     }

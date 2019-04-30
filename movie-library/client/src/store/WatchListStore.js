@@ -29,6 +29,13 @@ class WatchListStore {
 		runInAction(() => this.watchlist.push(newItem));
 	};
 
+	updateWatchlist = movie => {
+		console.log(movie);
+		this.api
+			.update(movie)
+			.then(movieValues => movie.updateFromServer(movieValues));
+	};
+
 	deleteMovieWatchList = movie => {
 		this.watchlist.remove(movie);
 		this.api.delete(movie);

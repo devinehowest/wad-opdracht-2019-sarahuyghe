@@ -4,6 +4,7 @@ import { inject, observer } from "mobx-react";
 import { ROUTES } from "../../constants";
 
 const Navigation = ({ uiStore }) => {
+	console.log(uiStore.authUser);
 	return (
 		<nav>
 			{uiStore.authUser ? (

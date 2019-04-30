@@ -1,7 +1,7 @@
 class Auth {
 	login = (email, password) => {
-		return fetch("/user/login", {
-			method: "POST",
+		return fetch(`/auth/login`, {
+			method: `POST`,
 			headers: {
 				"content-type": `application/json`
 			},
@@ -19,8 +19,8 @@ class Auth {
 	};
 
 	logout = () => {
-		return fetch("/user/logout", {
-			method: "POST",
+		return fetch(`/auth/logout`, {
+			method: `POST`,
 			headers: {
 				"content-type": `application/json`
 			}
@@ -28,8 +28,8 @@ class Auth {
 	};
 
 	register = (name, email, password) => {
-		return fetch("/user/register", {
-			method: "POST",
+		return fetch(`/auth/register`, {
+			method: `POST`,
 			headers: {
 				"content-type": `application/json`
 			},

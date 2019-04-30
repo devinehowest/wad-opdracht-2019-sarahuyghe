@@ -1,12 +1,13 @@
-import React, { Component } from "../../../node_modules/react";
-import { inject } from "../../../node_modules/mobx-react";
-import { withRouter } from "../../../node_modules/react-router-dom";
+import React, { Component } from "react";
+import { inject } from "mobx-react";
+import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
+// import stylesForm from "../../styles/form.module.css";
 
-class Register extends Component {
+class RegisterForm extends Component {
 	constructor() {
 		super();
-		this.state = { email: "", pwd: "", pwd2: "", name: "" };
+		this.state = { email: ``, pwd: ``, pwd2: ``, name: `` };
 	}
 
 	handleChange = e => {
@@ -29,51 +30,58 @@ class Register extends Component {
 		const { email, pwd, pwd2, name } = this.state;
 		return (
 			<>
-				<h2>Register</h2>
-				<form onSubmit={this.handleSubmit}>
+				<form
+					onSubmit={this.handleSubmit}
+					// className={stylesForm.form}
+				>
 					<label htmlFor="email">
-						name
+						Name
 						<input
 							type="test"
 							name="name"
 							id="name="
 							value={name}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<label htmlFor="email">
-						email
+						Email
 						<input
 							type="email"
 							name="email"
 							id="email="
 							value={email}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<label htmlFor="username">
-						password
+						Password
 						<input
 							type="password"
 							name="pwd"
 							id="pwd"
 							value={pwd}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<label htmlFor="username">
-						repeat password
+						Repeat password
 						<input
 							type="password"
 							name="pwd2"
 							id="pwd2"
 							ref={pwd2}
+							// className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<input
 						type="submit"
-						value="register"
+						value="Register"
+						// className={stylesForm.button}
 						disabled={pwd && pwd !== pwd2}
 					/>
 				</form>
@@ -82,4 +90,4 @@ class Register extends Component {
 	}
 }
 
-export default inject("uiStore")(withRouter(Register));
+export default inject(`uiStore`)(withRouter(RegisterForm));

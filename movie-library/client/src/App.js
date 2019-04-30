@@ -6,8 +6,9 @@ import { inject } from "mobx-react";
 import Movies from "./components/Movies";
 import Watchlists from "./components/Watchlist";
 import Navigation from "./components/navigation";
-import Login from "./components/user/Login";
-import Register from "./components/user/Register";
+import Login from "./components/auth/LoginForm";
+import Register from "./components/auth/RegisterForm";
+import MovieDetail from "./components/MovieDetail";
 
 import { ROUTES } from "./constants/";
 
@@ -22,26 +23,26 @@ const App = ({ uiStore }) => {
 				<Route path={ROUTES.login} component={Login} />
 				<Route path={ROUTES.register} component={Register} />
 				<Route
-					path={ROUTES.landing}
-					exact
-					strict
-					render={() => (
-						<>
-							<p>Welcome to the bookstore</p>
-							{/* {uiStore.authUser ? (
-                <Link to={ROUTES.books}>Books</Link>
-              ) : (
-                <ul>
-                  <li>
-                    <Link to={ROUTES.login}>Sign in</Link>
-                  </li>
-                  <li>
-                    <Link to={ROUTES.register}>Register</Link>
-                  </li>
-                </ul>
-              )} */}
-						</>
+					path="/MovieDetail/:id"
+					render={({ match }) => (
+						<MovieDetail movieId={match.params.id} loadData={match.params.id} />
 					)}
+					// 	<>
+					// 		<p>Welcome to the bookstore</p>
+					// 		{/* {uiStore.authUser ? (
+					//       <Link to={ROUTES.books}>Books</Link>
+					//     ) : (
+					//       <ul>
+					//         <li>
+					//           <Link to={ROUTES.login}>Sign in</Link>
+					//         </li>
+					//         <li>
+					//           <Link to={ROUTES.register}>Register</Link>
+					//         </li>
+					//       </ul>
+					//     )} */}
+					// 	</>
+					// )}
 				/>
 			</Switch>
 		</div>
