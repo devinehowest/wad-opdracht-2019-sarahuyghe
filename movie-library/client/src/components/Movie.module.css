@@ -2,15 +2,22 @@ img {
   border-radius: 8%;
 }
 
-div {
+.movie {
   display: flex;
   flex-direction: column;
   align-items: center;
+  display: grid;
+  grid-template-rows: auto 6rem 2rem;
+  grid-template-areas: "poster"
+                        "title"
+                        "add";
+  justify-items: center;
 }
 
 .title {
   composes: subTitle from "./../Typo.module.css";
   font-size: 25px;
+  grid-area: title;
 }
 
 .movie {
@@ -25,9 +32,20 @@ div {
   border-color: #1AA6A5;
   border-radius: 2rem;
   padding: .2rem .8rem;
+  width: 8rem;
 }
 .buttonAdd:hover {
   color: #1AA6A5;
   background-color: white;
    
+}
+
+.links {
+  text-decoration: none;
+  padding-bottom:.5rem;
+}
+
+
+.links:hover {
+   background: #7E7E7E;
 }

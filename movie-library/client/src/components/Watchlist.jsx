@@ -4,7 +4,8 @@ import MovieWatchlist from "./MovieWatchlist";
 import { inject, observer } from "mobx-react";
 import withAuthentication from "./auth/WithAuthentication";
 
-import styles from "../Typo.module.css";
+import stylesTypo from "../Typo.module.css";
+import styles from "./Watchlist.module.css";
 
 const Watchlist = ({ watchlistStore }) => {
 	const { watchlist } = watchlistStore;
@@ -12,10 +13,10 @@ const Watchlist = ({ watchlistStore }) => {
 	return (
 		<>
 			<section>
-				<h1 className={styles.mainTitle}>Watchlist</h1>
+				<h1 className={stylesTypo.mainTitle}>Watchlist</h1>
 
 				{watchlist.length > 0 ? (
-					<section>
+					<section className={styles.sectionMovies}>
 						{watchlist.map((watchlist, index) => (
 							<MovieWatchlist
 								key={index}

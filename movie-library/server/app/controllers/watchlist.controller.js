@@ -22,7 +22,9 @@ exports.create = (req, res) => {
 
 exports.findAll = async (req, res) => {
   try {
-    const movies = await Watchlist.find();
+    const movies = await Watchlist.find({userId: req.authUserId});
+
+    // const movies = await Watchlist.find();
     res.send(movies);
   } catch (err) {
     res.status(500).send({err: err.movie || 'Error'});
@@ -61,7 +63,10 @@ exports.update = async (req, res) => {
 
 exports.delete = async (req, res) => {
   try {
-    const movie = await Watchlist.findByIdAndRemove(req.params.movieId);
+    const movie = await Watchlist.findOneAndRemove({
+      _id: req.params.movieId,
+      userId: req.authUserId
+    });
     if (!movie) {
       return res.status(404).send('No movie found');
     }

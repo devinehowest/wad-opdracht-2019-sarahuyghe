@@ -27,17 +27,19 @@ class Api {
 	};
 
 	create = async movie => {
+		console.log("testing");
 		const r = await fetch(
-			`http://localhost:4000/${this.entity}`,
+			`/${this.entity}`,
 			this.getOptions("post", movie.values)
 		);
-
+		console.log("testing2");
 		return await r.json();
 	};
 
 	update = async movie => {
+		console.log("testing");
 		const r = await fetch(
-			`http://localhost:4000/${this.entity}/${movie.id}`,
+			`/${this.entity}/${movie.id}`,
 			this.getOptions("put", movie.values)
 		);
 		return await r.json();
@@ -45,7 +47,7 @@ class Api {
 
 	delete = async movie => {
 		const r = await fetch(
-			`http://localhost:4000/${this.entity}/${movie.id}`,
+			`/${this.entity}/${movie.id}`,
 			this.getOptions("delete")
 		);
 		return r.json();

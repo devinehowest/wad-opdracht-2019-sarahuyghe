@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { ROUTES } from "../../constants";
 
@@ -12,14 +12,14 @@ const Navigation = ({ uiStore }) => {
 			{uiStore.authUser ? (
 				<ul>
 					<li>
-						<Link to={ROUTES.home} className={styles.links}>
+						<NavLink to={ROUTES.home} className={styles.links}>
 							Home
-						</Link>
+						</NavLink>
 					</li>
 					<li>
-						<Link to={ROUTES.watchlist} className={styles.links}>
+						<NavLink to={ROUTES.watchlist} className={styles.links}>
 							Watchlist
-						</Link>
+						</NavLink>
 					</li>
 					{/* <li>
 						<Link to={ROUTES.login}>Login</Link>
@@ -32,14 +32,14 @@ const Navigation = ({ uiStore }) => {
 			) : (
 				<ul>
 					<li>
-						<Link to={ROUTES.login} className={styles.links}>
+						<NavLink to={ROUTES.login} className={styles.links}>
 							Sign in
-						</Link>
+						</NavLink>
 					</li>
 					<li>
-						<Link to={ROUTES.register} className={styles.links}>
+						<NavLink to={ROUTES.register} className={styles.links}>
 							Register
-						</Link>
+						</NavLink>
 					</li>
 				</ul>
 			)}

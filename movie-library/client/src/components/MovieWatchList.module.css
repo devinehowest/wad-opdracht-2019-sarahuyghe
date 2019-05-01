@@ -1,3 +1,64 @@
-.buttonAdd {
+img {
+  border-radius: 8%;
+}
+
+.movie {
+  display: grid;
+  grid-template-rows: auto 6rem 2rem;
+  grid-template-areas: "poster"
+                        "title"
+                        "add";
+  justify-items: center;
+}
+
+.title {
+  composes: subTitle from "./../Typo.module.css";
+  font-size: 25px;
+  grid-area: title;
+}
+
+.movie {
+  grid-row-start: auto;
+}
+
+.buttonWatched {
   color:white;
+  font-weight: bold;
+  font-size: .8rem;
+  background-color: #1AA6A5;
+  border-color: #1AA6A5;
+  border-radius: 2rem;
+  padding: .2rem .8rem;
+  width: 8rem;
+}
+
+.buttonWatched:hover {
+  color: #1AA6A5;
+  background-color: white;
+   
+}
+
+.buttonDelete {
+  color:white;
+  font-weight: bold;
+  font-size: .8rem;
+  background-color: red;
+  border-color: red;
+  border-radius: 2rem;
+  padding: .2rem .8rem;
+  width: 5rem;
+}
+.buttonDelete:hover {
+  color: red;
+  background-color: white;
+   
+}
+
+.links {
+  text-decoration: none;
+}
+
+
+.links:hover {
+  background: #7E7E7E;
 }

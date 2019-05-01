@@ -36,16 +36,20 @@ class WatchListStore {
 			.then(d => d.forEach(this._addMovieWatchList));
 	};
 
-	addMovieWatchList = ({ title, movieId, poster, _id }) => {
-		const newMovie = new MovieWatchList(title, movieId, poster, _id);
+	addMovieWatchList = ({ title, movieId, poster, watched, _id }) => {
+		// console.log(poster);
+		const newMovie = new MovieWatchList(title, movieId, poster, watched, _id);
+		console.log(newMovie);
 		this.watchlist.push(newMovie);
+		console.log(this.watchlist);
 		this.api
 			.create(newMovie)
 			.then(movieValues => newMovie.updateFromServer(movieValues));
 	};
 
-	_addMovieWatchList = ({ title, movieId, poster, _id }) => {
-		const newItem = new MovieWatchList(title, movieId, poster, _id);
+	_addMovieWatchList = ({ title, movieId, poster, watched, _id }) => {
+		console.log(title);
+		const newItem = new MovieWatchList(title, movieId, poster, watched, _id);
 		runInAction(() => this.watchlist.push(newItem));
 	};
 

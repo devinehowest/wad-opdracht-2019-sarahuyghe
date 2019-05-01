@@ -1,6 +1,8 @@
 .navSection{
   background-color: #FAFAFA;
   color: #7E7E7E;
+  display: flex;
+
 }
 
 li {
@@ -17,3 +19,4 @@ li {
 .links:hover {
   color: #1AA6A5
 }
+
