@@ -7,15 +7,14 @@ import typoStyles from "../Typo.module.css";
 import styles from "./Movies.module.css";
 
 const Movies = ({ movieStore }) => {
-	const { movies } = movieStore;
-
+	const { upcoming } = movieStore;
+	console.log(upcoming);
 	return (
 		<>
 			<section>
-				<h1 className={typoStyles.mainTitle}>Discover</h1>
-				<input type="text" />
+				<h1 className={typoStyles.mainTitle}>Upcoming</h1>
 				<section className={styles.sectionMovies}>
-					{movies.map((movie, index) => (
+					{upcoming.map((movie, index) => (
 						<Movie key={index} movie={movie} />
 					))}
 				</section>

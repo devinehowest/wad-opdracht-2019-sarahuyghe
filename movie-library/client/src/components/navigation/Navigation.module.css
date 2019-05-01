@@ -2,18 +2,35 @@
   background-color: #FAFAFA;
   color: #7E7E7E;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:1rem 2rem;
 
 }
 
-li {
-  /* text-decoration: none; */
+ul{
   list-style-type: none;
+  display: flex;
+  flex-direction: row
+}
 
+li {
+  text-decoration: none;
+  padding-right: 2rem; 
 }
 
 .links{
   text-decoration: none;
   color: #7E7E7E;
+}
+
+.logout {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: #7E7E7E;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif
 }
 
 .links:hover {

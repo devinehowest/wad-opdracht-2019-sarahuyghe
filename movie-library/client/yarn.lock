@@ -10489,6 +10489,11 @@ react-scripts@^2.1.8:
   optionalDependencies:
     fsevents "1.2.4"
 
+react-sidenav@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-sidenav/-/react-sidenav-4.0.0.tgz#048c02aa5fcf1e1ac94f70159af7528a46aaaf31"
+  integrity sha512-HIisVFRIFlhxHPl1ZAUscgGFvUVYpOPwKg1fqNUiUOFn9aDwcbKSveGFGM0DomJ06rq4OZjMPFQ7wesegoy8og==
+
 react-syntax-highlighter@^8.0.1:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-8.1.0.tgz#59103ff17a828a27ed7c8f035ae2558f09b6b78c"

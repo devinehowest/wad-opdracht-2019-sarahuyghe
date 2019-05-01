@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { inject } from "mobx-react";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
-// import stylesForm from "../../styles/form.module.css";
+import stylesForm from "./Form.module.css";
 
 class RegisterForm extends Component {
 	constructor() {
@@ -30,10 +30,7 @@ class RegisterForm extends Component {
 		const { email, pwd, pwd2, name } = this.state;
 		return (
 			<>
-				<form
-					onSubmit={this.handleSubmit}
-					// className={stylesForm.form}
-				>
+				<form onSubmit={this.handleSubmit} className={stylesForm.form}>
 					<label htmlFor="email">
 						Name
 						<input
@@ -41,7 +38,7 @@ class RegisterForm extends Component {
 							name="name"
 							id="name="
 							value={name}
-							// className={stylesForm.form_input}
+							className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -52,7 +49,7 @@ class RegisterForm extends Component {
 							name="email"
 							id="email="
 							value={email}
-							// className={stylesForm.form_input}
+							className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -63,7 +60,7 @@ class RegisterForm extends Component {
 							name="pwd"
 							id="pwd"
 							value={pwd}
-							// className={stylesForm.form_input}
+							className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -74,14 +71,14 @@ class RegisterForm extends Component {
 							name="pwd2"
 							id="pwd2"
 							ref={pwd2}
-							// className={stylesForm.form_input}
+							className={stylesForm.form_input}
 							onChange={this.handleChange}
 						/>
 					</label>
 					<input
 						type="submit"
 						value="Register"
-						// className={stylesForm.button}
+						className={stylesForm.button}
 						disabled={pwd && pwd !== pwd2}
 					/>
 				</form>

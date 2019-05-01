@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./MovieWatchList.module.css";
 
-import store from "../store";
+import store from "./../store";
 
 class MovieWatchlist extends Component {
 	constructor(props) {

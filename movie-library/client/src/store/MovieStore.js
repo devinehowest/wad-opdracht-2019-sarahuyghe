@@ -8,6 +8,8 @@ configure({ enforceActions: `observed` });
 
 class MovieStore {
 	movies = [];
+	upcoming = [];
+	topRated = [];
 	movieDetail = [];
 
 	constructor(rootStore) {
@@ -18,11 +20,28 @@ class MovieStore {
 		this.api
 			.getAllMovies()
 			.then(d => d.results.forEach(data => this._addMovie(data)));
+
+		this.api
+			.getAllMoviesUpcoming()
+			.then(d => d.results.forEach(data => this._addMovieUpcoming(data)));
+
+		this.api
+			.getAllMoviesTopRating()
+			.then(d => d.results.forEach(data => this._addMovieTopRating(data)));
 	}
 
 	_addMovie = data => {
 		const movie = new Movie(data);
 		runInAction(() => this.movies.push(movie));
+	};
+
+	_addMovieUpcoming = data => {
+		const movie = new Movie(data);
+		runInAction(() => this.upcoming.push(movie));
+	};
+	_addMovieTopRating = data => {
+		const movie = new Movie(data);
+		runInAction(() => this.topRated.push(movie));
 	};
 
 	LoadData = movieId => {
@@ -50,7 +69,9 @@ decorate(MovieStore, {
 	movies: observable,
 	movieDetail: observable,
 	_addMovie: action,
-	_addMovieDetails: action
+	_addMovieDetails: action,
+	_addMovieTopRating: action,
+	_addMovieUpcoming: action
 });
 
 export default MovieStore;

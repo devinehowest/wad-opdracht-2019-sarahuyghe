@@ -3,7 +3,7 @@ import { inject } from "mobx-react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { ROUTES } from "../../constants";
-// import stylesForm from "../../styles/form.module.css";
+import stylesForm from "./Form.module.css";
 
 const LoginForm = ({ uiStore, history }) => {
 	const emailInput = React.createRef();
@@ -18,10 +18,7 @@ const LoginForm = ({ uiStore, history }) => {
 
 	return (
 		<>
-			<form
-				onSubmit={handleSubmit}
-				// className={stylesForm.form}
-			>
+			<form onSubmit={handleSubmit} className={stylesForm.form}>
 				<label htmlFor="email">
 					Email
 					<input
@@ -29,7 +26,7 @@ const LoginForm = ({ uiStore, history }) => {
 						name="email"
 						id="email="
 						ref={emailInput}
-						// className={stylesForm.form_input}
+						className={stylesForm.form_input}
 					/>
 				</label>
 				<label htmlFor="username">
@@ -39,19 +36,13 @@ const LoginForm = ({ uiStore, history }) => {
 						name="password"
 						id="password"
 						ref={pwdInput}
-						// className={stylesForm.form_input}
+						className={stylesForm.form_input}
 					/>
 				</label>
-				<input
-					type="submit"
-					value="Login"
-					//  className={stylesForm.button}
-				/>
+				<input type="submit" value="Login" className={stylesForm.button} />
 			</form>
 
-			<p
-			// className={stylesForm.metaAction}
-			>
+			<p className={stylesForm.metaAction}>
 				No account? <Link to={ROUTES.register}>Sign up!</Link>
 			</p>
 		</>

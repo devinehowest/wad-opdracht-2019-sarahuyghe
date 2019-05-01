@@ -4,6 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import { inject } from "mobx-react";
 
 import Movies from "./components/Movies";
+import Upcoming from "./components/Upcoming";
+import TopRated from "./components/TopRated";
 import Watchlists from "./components/Watchlist";
 import Navigation from "./components/navigation";
 import Login from "./components/auth/LoginForm";
@@ -19,6 +21,8 @@ const App = ({ uiStore }) => {
 			<Navigation />
 			<Switch>
 				<Route path={ROUTES.home} exact strict component={Movies} />
+				<Route path={ROUTES.upcoming} component={Upcoming} />
+				<Route path={ROUTES.toprated} component={TopRated} />
 				<Route path={ROUTES.watchlist} component={Watchlists} />
 				<Route path={ROUTES.login} component={Login} />
 				<Route path={ROUTES.register} component={Register} />
