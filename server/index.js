@@ -35,7 +35,7 @@ app.get('*', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send({message: 'ok', secret: process.env.SECRET});
+  res.send({message: 'up and running'});
 });
 // app.get('/', (req, res) => {
 //   res.json({message: 'up and running'});
