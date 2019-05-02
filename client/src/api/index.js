@@ -41,13 +41,13 @@ class Api {
 	};
 
 	getAllMoviesOnWatchList = async () => {
-		const r = await fetch(`/${this.entity}`);
+		const r = await fetch(`/api/${this.entity}`);
 		return await r.json();
 	};
 
 	create = async movie => {
 		const r = await fetch(
-			`/${this.entity}`,
+			`/api/${this.entity}`,
 			this.getOptions("post", movie.values)
 		);
 		return await r.json();
@@ -56,7 +56,7 @@ class Api {
 	update = async movie => {
 		console.log(movie.id);
 		const r = await fetch(
-			`/${this.entity}/${movie.id}`,
+			`/api/${this.entity}/${movie.id}`,
 			this.getOptions("put", movie.values)
 		);
 		return await r.json();
@@ -64,7 +64,7 @@ class Api {
 
 	delete = async movie => {
 		const r = await fetch(
-			`/${this.entity}/${movie.id}`,
+			`/api/${this.entity}/${movie.id}`,
 			this.getOptions("delete")
 		);
 		return r.json();

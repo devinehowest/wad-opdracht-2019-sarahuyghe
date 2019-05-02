@@ -16,16 +16,8 @@ class WatchListStore {
 	constructor(rootStore) {
 		this.rootStore = rootStore;
 
-		this.api = new Api(`watchlis`);
-		// if (this.rootStore.uiStore.authUser) {
+		this.api = new Api(`watchlist`);
 		this.getAllMoviesOnWatchList();
-		// }
-
-		// if (change.newValue) {
-		// 	this.getAllMoviesOnWatchList();
-		// } else {
-		// 	runInAction(() => (this.watchlist = []));
-		// }
 	}
 
 	getAllMoviesOnWatchList = () => {
