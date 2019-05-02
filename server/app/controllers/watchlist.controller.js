@@ -26,7 +26,8 @@ exports.findAll = async (req, res) => {
     const movies = await Watchlist.find({userId: req.authUserId});
     res.send(movies);
   } catch (err) {
-    res.status(500).send({err: err.movie || 'Error'});
+    console.log(err);
+    res.status(500).send({err: err || 'Error'});
   }
 };
 
@@ -44,7 +45,7 @@ exports.update = async (req, res) => {
         title: req.body.title,
         movieId: req.body.movieId,
         poster: req.body.poster,
-        watched: true,
+        watched: req.body.watched,
         authorId: req.body.authorId
       },
       {

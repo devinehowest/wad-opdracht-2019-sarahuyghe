@@ -36,6 +36,7 @@ class WatchListStore {
 
 	addMovieWatchList = ({ title, movieId, poster, watched, _id }) => {
 		const newMovie = new MovieWatchList(title, movieId, poster, watched, _id);
+		runInAction(() => this.watchlist.push(newMovie));
 		this.api
 			.create(newMovie)
 			.then(movieValues => newMovie.updateFromServer(movieValues));

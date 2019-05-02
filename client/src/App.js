@@ -23,7 +23,7 @@ const App = ({ uiStore }) => {
 				<Route path={ROUTES.home} exact strict component={Movies} />
 				<Route path={ROUTES.upcoming} component={Upcoming} />
 				<Route path={ROUTES.toprated} component={TopRated} />
-				<Route path={ROUTES.watchlist} component={Watchlists} />
+				<Route path={ROUTES.watchlist} exact component={Watchlists} />
 				<Route path={ROUTES.login} component={Login} />
 				<Route path={ROUTES.register} component={Register} />
 				<Route

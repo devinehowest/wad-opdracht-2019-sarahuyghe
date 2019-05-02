@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { inject, observer } from "mobx-react";
 
 import styles from "./MovieWatchList.module.css";
 
@@ -21,6 +22,7 @@ class MovieWatchlist extends Component {
 		// 	this.props.movie.watched = false;
 		// }
 		// e.preventDefeault();
+		this.props.movie.setWatched(!this.props.movie.watched);
 		this.props.onUpdate(this.props.movie);
 		// this.setState({ edit: false });
 		// console.log(this.props.movie.watched);
@@ -64,4 +66,4 @@ MovieWatchlist.propTypes = {
 	movie: PropTypes.object.isRequired
 };
 
-export default MovieWatchlist;
+export default observer(MovieWatchlist);
