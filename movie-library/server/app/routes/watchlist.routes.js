@@ -3,6 +3,6 @@ module.exports = app => {
   const controller = require('../controllers/watchlist.controller.js');
   app.post('/watchlist', checkToken, controller.create);
   app.get('/watchlist', checkToken, controller.findAll);
-  // app.get('/watchlist/:movieId', controller.findOne);
+  app.put('/watchlist/:movieId', checkToken, controller.update);
   app.delete('/watchlist/:movieId', checkToken, controller.delete);
 };

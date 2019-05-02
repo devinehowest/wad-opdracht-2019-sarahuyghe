@@ -13,7 +13,7 @@ const Movies = ({ movieStore }) => {
 		<>
 			<section>
 				<h1 className={typoStyles.mainTitle}>Discover</h1>
-				<input type="text" />
+
 				<section className={styles.sectionMovies}>
 					{movies.map((movie, index) => (
 						<Movie key={index} movie={movie} />

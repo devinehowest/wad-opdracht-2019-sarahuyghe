@@ -30,7 +30,6 @@ class WatchListStore {
 	}
 
 	getAllMoviesOnWatchList = () => {
-		// console.log("hello");
 		this.api
 			.getAllMoviesOnWatchList()
 			.then(d => d.forEach(this._addMovieWatchList));
@@ -41,18 +40,6 @@ class WatchListStore {
 		this.api
 			.create(newMovie)
 			.then(movieValues => newMovie.updateFromServer(movieValues));
-		// const movies = this.watchlist.find(
-		// 	titleMovie => titleMovie.movieId == movieId
-		// );
-		// console.log(movies);
-		// if (!movies) {
-		// 	console.log("already in list");
-		// } else {
-		// 	const newMovie = new MovieWatchList(title, movieId, poster, watched, _id);
-		// 	this.api
-		// 		.create(newMovie)
-		// 		.then(movieValues => newMovie.updateFromServer(movieValues));
-		// }
 	};
 
 	_addMovieWatchList = ({ title, movieId, poster, watched, _id }) => {
@@ -64,11 +51,12 @@ class WatchListStore {
 			runInAction(() => this.watchlist.push(newItem));
 		} else {
 			console.log("already in list");
+			console.log(this.watchlist);
 		}
 	};
 
 	updateWatchlist = movie => {
-		console.log(movie);
+		console.log(movie.watched);
 		this.api
 			.update(movie)
 			.then(movieValues => movie.updateFromServer(movieValues));

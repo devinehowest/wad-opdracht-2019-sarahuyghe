@@ -46,17 +46,15 @@ class Api {
 	};
 
 	create = async movie => {
-		console.log("testing");
 		const r = await fetch(
 			`/${this.entity}`,
 			this.getOptions("post", movie.values)
 		);
-		console.log("testing2");
 		return await r.json();
 	};
 
 	update = async movie => {
-		console.log("testing");
+		console.log(movie.id);
 		const r = await fetch(
 			`/${this.entity}/${movie.id}`,
 			this.getOptions("put", movie.values)

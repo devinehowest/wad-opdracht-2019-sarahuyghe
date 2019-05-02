@@ -6,6 +6,7 @@ const WatchlistSchema = mongoose.Schema(
     title: String,
     movieId: Number,
     poster: String,
+    watched: Boolean,
     userId: ObjectId
   },
   {

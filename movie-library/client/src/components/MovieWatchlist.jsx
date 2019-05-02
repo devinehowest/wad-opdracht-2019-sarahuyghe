@@ -8,14 +8,23 @@ import store from "./../store";
 class MovieWatchlist extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { watched: this.props.movie.watched };
+		this.state = { watched: false };
 		this.title = React.createRef();
 	}
 
-	setWatchedMode = value => this.setState({ watched: true });
+	setWatchedMode = value => this.setState({ watched: value });
+
+	handleUpdate = () => {
+		if (this.props.movie.watched === false) {
+			this.props.movie.watched = true;
+		} else {
+			this.props.movie.watched = false;
+		}
+		this.props.onUpdate(this.props.movie);
+		// console.log(this.props.movie.watched);
+	};
 
 	render() {
-		// const title = React.createRef();
 		const { watched } = this.state;
 		const { movie, onDelete, onUpdate } = this.props;
 
@@ -28,17 +37,10 @@ class MovieWatchlist extends Component {
 					</p>
 
 					<button
-						// className={styles.buttonAdd}
-						onClick={() => {
-							this.setWatchedMode(true);
-							// console.log(this.props.movie.movieId);
-							// console.log(watched);
-							onUpdate(movie);
-							console.log(movie.watched);
-							// this.setWatchedMode(true);
-							// console.log(watched);
-						}}
 						className={styles.buttonWatched}
+						onClick={() => {
+							this.handleUpdate();
+						}}
 					>
 						watched
 					</button>
