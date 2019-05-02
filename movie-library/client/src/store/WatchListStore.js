@@ -17,16 +17,15 @@ class WatchListStore {
 		this.rootStore = rootStore;
 
 		this.api = new Api(`watchlist`);
-		if (this.rootStore.uiStore.authUser) {
-			this.getAllMoviesOnWatchList();
-		}
-		observe(this.rootStore.uiStore, "authUser", change => {
-			if (change.newValue) {
-				this.getAllMoviesOnWatchList();
-			} else {
-				runInAction(() => (this.watchlist = []));
-			}
-		});
+		// if (this.rootStore.uiStore.authUser) {
+		this.getAllMoviesOnWatchList();
+		// }
+
+		// if (change.newValue) {
+		// 	this.getAllMoviesOnWatchList();
+		// } else {
+		// 	runInAction(() => (this.watchlist = []));
+		// }
 	}
 
 	getAllMoviesOnWatchList = () => {

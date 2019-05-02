@@ -4,7 +4,7 @@ exports.create = (req, res) => {
   if (!req.body.title) {
     return res.status(500).send({err: 'title can not be empty'});
   }
-  console.log(req.body);
+
   const movie = new Watchlist({
     title: req.body.title,
     movieId: req.body.movieId,
@@ -12,7 +12,7 @@ exports.create = (req, res) => {
     watched: false,
     userId: req.authUserId
   });
-
+  console.log(movie);
   movie
     .save()
     .then(movie => res.send(movie))
@@ -31,7 +31,6 @@ exports.findAll = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  console.log('testing');
   if (!req.body.title) {
     return res.status(400).send('title mag niet leeg zijn');
   }
@@ -39,19 +38,20 @@ exports.update = async (req, res) => {
   try {
     const movie = await Watchlist.findByIdAndUpdate(
       req.params.movieId,
-      console.log(movie),
+      // console.log('test'),
+
       {
         title: req.body.title,
         movieId: req.body.movieId,
         poster: req.body.poster,
-        // watched: req.body.watched,
+        watched: true,
         authorId: req.body.authorId
       },
       {
         new: true
       }
     );
-
+    console.log(movie);
     if (!movie) {
       return res.status(404).send('No book found');
     }

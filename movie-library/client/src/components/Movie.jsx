@@ -28,29 +28,27 @@ class Movie extends Component {
 
 		return (
 			<>
-				<Link to={`/MovieDetail/${movie.movieId}`} className={styles.links}>
-					<div className={styles.movie}>
-						<img src={movie.poster} alt="test" width="320" height="474" />
-						<p className={styles.title} ref={this.title}>
-							{movie.title}
-						</p>
-						<button
-							value="+ Add"
-							onClick={this.handleSubmit}
-							className={styles.buttonAdd}
-						>
-							+ Add
-						</button>
+				<div className={styles.movie}>
+					<img src={movie.poster} alt="test" width="320" height="474" />
+					<p className={styles.title} ref={this.title}>
+						{movie.title}
+					</p>
+					<button
+						value="+ Add"
+						onClick={this.handleSubmit}
+						className={styles.buttonAdd}
+					>
+						+ Add
+					</button>
 
-						{/* <a
+					{/* <a
 						href={`https://api.themoviedb.org/3/movie/${
 							movie.movieId
 						}?api_key=${apiKey}`}
 					>
 						detail
           </a> */}
-					</div>
-				</Link>
+				</div>
 			</>
 		);
 	}
