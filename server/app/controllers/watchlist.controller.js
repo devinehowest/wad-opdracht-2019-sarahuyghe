@@ -39,7 +39,6 @@ exports.update = async (req, res) => {
   try {
     const movie = await Watchlist.findByIdAndUpdate(
       req.params.movieId,
-      // console.log('test'),
 
       {
         title: req.body.title,

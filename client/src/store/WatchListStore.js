@@ -16,7 +16,7 @@ class WatchListStore {
 	constructor(rootStore) {
 		this.rootStore = rootStore;
 
-		this.api = new Api(`watchlist`);
+		this.api = new Api(`watchlis`);
 		// if (this.rootStore.uiStore.authUser) {
 		this.getAllMoviesOnWatchList();
 		// }
