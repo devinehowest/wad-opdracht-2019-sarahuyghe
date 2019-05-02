@@ -20,23 +20,20 @@ mongoose
 
 const app = express();
 
+app.use(cors());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+require('./app/routes/auth.routes.js')(app);
+require('./app/routes/watchlist.routes.js')(app);
+
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
-app.use(cors());
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
-// app.get('/', (req, res) => {
-//   res.json({message: 'up and running'});
-// });
-
-require('./app/routes/auth.routes.js')(app);
-require('./app/routes/watchlist.routes.js')(app);
 app.get('/', (req, res) => {
   res.json({message: 'up and running'});
 });
