@@ -34,7 +34,7 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
-app.get('/api/', (req, res) => {
+app.get('/', (req, res) => {
   res.send({message: 'ok', secret: process.env.SECRET});
 });
 // app.get('/', (req, res) => {
