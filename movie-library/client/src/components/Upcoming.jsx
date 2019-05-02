@@ -8,7 +8,6 @@ import styles from "./Movies.module.css";
 
 const Movies = ({ movieStore }) => {
 	const { upcoming } = movieStore;
-	console.log(upcoming);
 	return (
 		<>
 			<section>

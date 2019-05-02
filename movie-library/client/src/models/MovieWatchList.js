@@ -6,7 +6,7 @@ class MovieWatchList {
 		this.id = id;
 		this.movieId = movieId;
 		this.title = title;
-		console.log(poster);
+		// console.log(poster);
 		this.poster = poster;
 		this.watched = watched;
 	}
@@ -15,10 +15,10 @@ class MovieWatchList {
 	setTitle = value => (this.title = value);
 	setMovieId = value => (this.movieId = value);
 	setPoster = value => (this.poster = value);
-	setWatched = value => (this.watched = value);
+	// setWatched = value => (this.watched = value);
 
 	get values() {
-		console.log(this.poster);
+		// console.log(this.poster);
 		return {
 			title: this.title,
 			movieId: this.movieId,
