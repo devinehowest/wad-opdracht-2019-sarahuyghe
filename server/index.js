@@ -37,9 +37,6 @@ app.get('*', (req, res) => {
 app.get('/', (req, res) => {
   res.send({message: 'up and running'});
 });
-// app.get('/', (req, res) => {
-//   res.json({message: 'up and running'});
-// });
 
 app.listen(process.env.PORT, () => {
   console.log(`Server luistert op poort ${process.env.PORT}`);

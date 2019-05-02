@@ -23,6 +23,7 @@ class MovieWatchlist extends Component {
 	render() {
 		const { edit } = this.state;
 		const { movie, onDelete, onUpdate } = this.props;
+		console.log(movie);
 
 		return (
 			<>
@@ -31,23 +32,35 @@ class MovieWatchlist extends Component {
 					<p className={styles.title} ref={this.title}>
 						{movie.title}
 					</p>
-
-					<button
-						className={movie.watched ? styles.buttonWatched : styles.buttonHelp}
-						onClick={() => {
-							this.handleUpdate();
-							this.setState({ edit: true });
-						}}
-					>
-						watched
-					</button>
-
-					<button
-						onClick={() => onDelete(movie)}
-						className={styles.buttonDelete}
-					>
-						Delete
-					</button>
+					<div>
+						{movie.watched ? (
+							<button
+								className={styles.buttonWatching}
+								onClick={() => {
+									this.handleUpdate();
+									this.setState({ edit: true });
+								}}
+							>
+								Watched it
+							</button>
+						) : (
+							<button
+								className={styles.buttonWatched}
+								onClick={() => {
+									this.handleUpdate();
+									this.setState({ edit: true });
+								}}
+							>
+								Need to watch
+							</button>
+						)}
+						<button
+							onClick={() => onDelete(movie)}
+							className={styles.buttonDelete}
+						>
+							Delete
+						</button>
+					</div>
 				</div>
 			</>
 		);
