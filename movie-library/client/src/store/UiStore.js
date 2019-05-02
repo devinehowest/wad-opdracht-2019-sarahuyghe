@@ -1,5 +1,5 @@
 import { decorate, observable, action } from "mobx";
-import Auth from "../api/auth";
+import Auth from "../api/Auth";
 import { getUserFromCookie } from "../utils/index.js";
 
 class UiStore {
