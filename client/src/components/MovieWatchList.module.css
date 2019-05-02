@@ -32,6 +32,10 @@ img {
   width: 8rem;
 }
 
+.buttonHelp {
+  color: red;
+}
+
 .buttonWatched:hover {
   color: #1AA6A5;
   background-color: white;

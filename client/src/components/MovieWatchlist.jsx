@@ -16,16 +16,8 @@ class MovieWatchlist extends Component {
 	setWatchedMode = value => this.setState({ watched: value });
 
 	handleUpdate = () => {
-		// if (this.props.movie.watched === false) {
-		// 	this.props.movie.watched = true;
-		// } else {
-		// 	this.props.movie.watched = false;
-		// }
-		// e.preventDefeault();
 		this.props.movie.setWatched(!this.props.movie.watched);
 		this.props.onUpdate(this.props.movie);
-		// this.setState({ edit: false });
-		// console.log(this.props.movie.watched);
 	};
 
 	render() {
@@ -41,7 +33,7 @@ class MovieWatchlist extends Component {
 					</p>
 
 					<button
-						className={styles.buttonWatched}
+						className={movie.watched ? styles.buttonWatched : styles.buttonHelp}
 						onClick={() => {
 							this.handleUpdate();
 							this.setState({ edit: true });

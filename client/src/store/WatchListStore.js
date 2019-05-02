@@ -17,7 +17,17 @@ class WatchListStore {
 		this.rootStore = rootStore;
 
 		this.api = new Api(`watchlist`);
-		this.getAllMoviesOnWatchList();
+		if (this.rootStore.uiStore.authUser) {
+			this.getAllMoviesOnWatchList();
+		}
+
+		observe(this.rootStore.uiStore, "authUser", change => {
+			if (change.newValue) {
+				this.getAllMoviesOnWatchList();
+			} else {
+				runInAction(() => (this.watchlist = []));
+			}
+		});
 	}
 
 	getAllMoviesOnWatchList = () => {
@@ -27,11 +37,19 @@ class WatchListStore {
 	};
 
 	addMovieWatchList = ({ title, movieId, poster, watched, _id }) => {
-		const newMovie = new MovieWatchList(title, movieId, poster, watched, _id);
-		runInAction(() => this.watchlist.push(newMovie));
-		this.api
-			.create(newMovie)
-			.then(movieValues => newMovie.updateFromServer(movieValues));
+		const movies = this.watchlist.find(
+			titleMovie => titleMovie.movieId === movieId
+		);
+		if (!movies) {
+			const newMovie = new MovieWatchList(title, movieId, poster, watched, _id);
+			runInAction(() => this.watchlist.push(newMovie));
+			this.api
+				.create(newMovie)
+				.then(movieValues => newMovie.updateFromServer(movieValues));
+		} else {
+			// console.log("already in list");
+			console.log(this.watchlist);
+		}
 	};
 
 	_addMovieWatchList = ({ title, movieId, poster, watched, _id }) => {
