@@ -54,7 +54,6 @@ class Api {
 	};
 
 	update = async movie => {
-		console.log(movie.id);
 		const r = await fetch(
 			`/api/${this.entity}/${movie.id}`,
 			this.getOptions("put", movie.values)

@@ -14,7 +14,6 @@ class UiStore {
 	setUser = value => (this.authUser = value);
 
 	login = (username, password) => {
-		console.log(username);
 		return this.authService
 			.login(username, password)
 			.then(() => {

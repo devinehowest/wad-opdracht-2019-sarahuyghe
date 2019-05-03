@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 import styles from "./Movie.module.css";
 
@@ -40,14 +39,6 @@ class Movie extends Component {
 					>
 						+ Add
 					</button>
-
-					{/* <a
-						href={`https://api.themoviedb.org/3/movie/${
-							movie.movieId
-						}?api_key=${apiKey}`}
-					>
-						detail
-          </a> */}
 				</div>
 			</>
 		);

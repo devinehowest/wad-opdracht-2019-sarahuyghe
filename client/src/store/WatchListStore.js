@@ -47,8 +47,7 @@ class WatchListStore {
 				.create(newMovie)
 				.then(movieValues => newMovie.updateFromServer(movieValues));
 		} else {
-			// console.log("already in list");
-			console.log(this.watchlist);
+			console.log("already in list");
 		}
 	};
 
@@ -61,12 +60,10 @@ class WatchListStore {
 			runInAction(() => this.watchlist.push(newItem));
 		} else {
 			console.log("already in list");
-			console.log(this.watchlist);
 		}
 	};
 
 	updateWatchlist = movie => {
-		console.log(movie.watched);
 		this.api
 			.update(movie)
 			.then(movieValues => movie.updateFromServer(movieValues));

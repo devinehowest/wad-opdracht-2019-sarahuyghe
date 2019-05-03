@@ -1,6 +1,5 @@
 import { configure, decorate, observable, runInAction, action } from "mobx";
 import Movie from "../models/Movie";
-import Detail from "../models/Detail";
 
 import Api from "../api";
 
@@ -10,7 +9,6 @@ class MovieStore {
 	movies = [];
 	upcoming = [];
 	topRated = [];
-	movieDetail = [];
 
 	constructor(rootStore) {
 		this.rootStore = rootStore;
@@ -43,33 +41,11 @@ class MovieStore {
 		const movie = new Movie(data);
 		runInAction(() => this.topRated.push(movie));
 	};
-
-	LoadData = movieId => {
-		// this.movieDetail = {};
-		this.api.getDetailMovie(movieId).then(data => this._addMovieDetails(data));
-		// this.api.getDetailMovie(movieId).then(data => {
-		// 	this.movieDetail = data;
-		// });
-		// console.log(this.movieDetail);
-		// console.log(movieId);
-	};
-
-	_addMovieDetails = data => {
-		// console.log(data);
-		this.movieDetail = [];
-		const movie = new Detail(data);
-		runInAction(() => this.movieDetail.push(movie));
-		this.movieDetail = movie;
-		console.log("new movie");
-		console.log(this.movieDetail.title);
-	};
 }
 
 decorate(MovieStore, {
 	movies: observable,
-	movieDetail: observable,
 	_addMovie: action,
-	_addMovieDetails: action,
 	_addMovieTopRating: action,
 	_addMovieUpcoming: action
 });

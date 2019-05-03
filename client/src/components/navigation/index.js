@@ -1,12 +1,11 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 import { ROUTES } from "../../constants";
 
 import styles from "./Navigation.module.css";
 
 const Navigation = ({ uiStore }) => {
-	console.log(uiStore.authUser);
 	return (
 		<nav className={styles.navSection}>
 			{uiStore.authUser ? (

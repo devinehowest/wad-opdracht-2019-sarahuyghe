@@ -1,19 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { inject, observer } from "mobx-react";
+import { observer } from "mobx-react";
 
 import styles from "./MovieWatchList.module.css";
-
-import store from "./../store";
 
 class MovieWatchlist extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { edit: false };
 		this.title = React.createRef();
 	}
-
-	setWatchedMode = value => this.setState({ watched: value });
 
 	handleUpdate = () => {
 		this.props.movie.setWatched(!this.props.movie.watched);
@@ -21,48 +16,49 @@ class MovieWatchlist extends Component {
 	};
 
 	render() {
-		const { edit } = this.state;
-		const { movie, onDelete, onUpdate } = this.props;
-		console.log(movie);
+		const { movie, onDelete } = this.props;
 
 		return (
-			<>
-				<div className={styles.movie}>
-					<img src={movie.poster} alt="test" width="320" height="474" />
-					<p className={styles.title} ref={this.title}>
-						{movie.title}
-					</p>
-					<div>
-						{movie.watched ? (
-							<button
-								className={styles.buttonWatching}
-								onClick={() => {
-									this.handleUpdate();
-									this.setState({ edit: true });
-								}}
-							>
-								Watched it
-							</button>
-						) : (
-							<button
-								className={styles.buttonWatched}
-								onClick={() => {
-									this.handleUpdate();
-									this.setState({ edit: true });
-								}}
-							>
-								Need to watch
-							</button>
-						)}
+			<div className={styles.movieWatched}>
+				<img
+					src={movie.poster}
+					alt="test"
+					width="320"
+					height="474"
+					className={movie.watched ? styles.imageSeen : styles.imageNeedToSee}
+				/>
+				<p className={styles.title} ref={this.title}>
+					{movie.title}
+				</p>
+				<div>
+					{movie.watched ? (
 						<button
-							onClick={() => onDelete(movie)}
-							className={styles.buttonDelete}
+							className={styles.buttonWatching}
+							onClick={() => {
+								this.handleUpdate();
+							}}
 						>
-							Delete
+							Watched it
 						</button>
-					</div>
+					) : (
+						<button
+							className={styles.buttonWatched}
+							onClick={() => {
+								this.handleUpdate();
+							}}
+						>
+							Need to watch
+						</button>
+					)}
+
+					<button
+						onClick={() => onDelete(movie)}
+						className={styles.buttonDelete}
+					>
+						Delete
+					</button>
 				</div>
-			</>
+			</div>
 		);
 	}
 }

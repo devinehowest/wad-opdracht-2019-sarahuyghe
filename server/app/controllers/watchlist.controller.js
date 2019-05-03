@@ -12,7 +12,6 @@ exports.create = (req, res) => {
     watched: false,
     userId: req.authUserId
   });
-  console.log(movie);
   movie
     .save()
     .then(movie => res.send(movie))
@@ -26,7 +25,6 @@ exports.findAll = async (req, res) => {
     const movies = await Watchlist.find({userId: req.authUserId});
     res.send(movies);
   } catch (err) {
-    console.log(err);
     res.status(500).send({err: err || 'Error'});
   }
 };
@@ -51,7 +49,6 @@ exports.update = async (req, res) => {
         new: true
       }
     );
-    console.log(movie);
     if (!movie) {
       return res.status(404).send('No book found');
     }

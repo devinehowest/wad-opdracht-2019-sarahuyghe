@@ -21,6 +21,14 @@ img {
   grid-row-start: auto;
 }
 
+.imageSeen{
+  filter: grayscale(100%);
+}
+
+.imageNeedToSee{
+  filter: grayscale(0%);
+}
+
 .buttonWatched {
   color:white;
   font-weight: bold;
