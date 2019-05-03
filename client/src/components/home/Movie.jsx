@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./Movie.module.css";
 
-import store from "../store";
+import store from "../../store";
 
 class Movie extends Component {
 	constructor(props) {

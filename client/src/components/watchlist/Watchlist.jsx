@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import MovieWatchlist from "./MovieWatchlist";
 import { inject, observer } from "mobx-react";
-import withAuthentication from "./auth/WithAuthentication";
+import withAuthentication from "./../auth/WithAuthentication";
 
-import stylesTypo from "./../Typo.module.css";
+import stylesTypo from "./../../Typo.module.css";
 import styles from "./Watchlist.module.css";
 
 const Watchlist = ({ watchlistStore }) => {

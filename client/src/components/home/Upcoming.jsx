@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Movie from "./Movie";
 import { inject, observer } from "mobx-react";
 
-import typoStyles from "../Typo.module.css";
+import typoStyles from "../../Typo.module.css";
 import styles from "./Movies.module.css";
 
 const Movies = ({ movieStore }) => {

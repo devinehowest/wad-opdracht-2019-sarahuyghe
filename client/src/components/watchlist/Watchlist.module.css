@@ -3,7 +3,6 @@
   display: grid;
   color: white;
   grid-template-columns:  repeat(4, 1fr) ;
-  /* grid-template-rows: repeat(2, 100px); */
   grid-gap: 2rem;
 }
 

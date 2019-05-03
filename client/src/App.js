@@ -3,10 +3,10 @@ import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import { inject } from "mobx-react";
 
-import Movies from "./components/Movies";
-import Upcoming from "./components/Upcoming";
-import TopRated from "./components/TopRated";
-import Watchlists from "./components/Watchlist";
+import Movies from "./components/home/Movies";
+import Upcoming from "./components/home/Upcoming";
+import TopRated from "./components/home/TopRated";
+import Watchlists from "./components/watchlist/Watchlist";
 import Navigation from "./components/navigation";
 import Login from "./components/auth/LoginForm";
 import Register from "./components/auth/RegisterForm";

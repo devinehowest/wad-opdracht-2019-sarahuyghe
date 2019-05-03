@@ -1,6 +1,6 @@
 .navSection{
-  background-color: #FAFAFA;
-  color: #7E7E7E;
+  background-color:var(--light-gray);
+  color: var(--dark-gray);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,19 +21,19 @@ li {
 
 .links{
   text-decoration: none;
-  color: #7E7E7E;
+  color: var(--dark-gray);
 }
 
 .logout {
   background-color: transparent;
   border: none;
   text-decoration: none;
-  color: #7E7E7E;
+  color: var(--dark-gray);
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif
 }
 
 .links:hover {
-  color: #1AA6A5
+  color: var(--primary-color)
 }
 

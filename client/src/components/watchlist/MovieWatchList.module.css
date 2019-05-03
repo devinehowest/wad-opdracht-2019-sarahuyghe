@@ -12,8 +12,8 @@ img {
 }
 
 .title {
-  composes: subTitle from "./../Typo.module.css";
-  font-size: 25px;
+  composes: subTitle from "./../../Typo.module.css";
+  font-size: 1.5rem;
   grid-area: title;
 }
 
@@ -33,17 +33,17 @@ img {
   color:white;
   font-weight: bold;
   font-size: .8rem;
-  background-color: #1AA6A5;
-  border-color: #1AA6A5;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
   border-radius: 2rem;
   padding: .2rem .8rem;
   width: 8rem;
 }
 
 .buttonWatching {
-  color: #1AA6A5;
+  color: var(--primary-color);
   background-color:white; 
-  border-color: #1AA6A5;
+  border-color: var(--primary-color);
   border-radius: 2rem;
   padding: .2rem .8rem;
   width: 8rem;
@@ -52,13 +52,13 @@ img {
 }
 
 .buttonWatched:hover {
-  color: #1AA6A5;
+  color: var(--primary-color);
   background-color: white;
    
 }
 
 .buttonWatching:hover {
-  background-color: #1AA6A5;
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -66,23 +66,15 @@ img {
   color:white;
   font-weight: bold;
   font-size: .8rem;
-  background-color: red;
-  border-color: red;
+  background-color: var(--delete-color);
+  border-color: var(--delete-color);
   border-radius: 2rem;
   padding: .2rem .8rem;
   width: 5rem;
 }
 .buttonDelete:hover {
-  color: red;
+  color: var(--delete-color);
   background-color: white;
    
 }
 
-.links {
-  text-decoration: none;
-}
-
-
-.links:hover {
-  background: #7E7E7E;
-}
