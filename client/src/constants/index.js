@@ -3,7 +3,6 @@ export const ROUTES = {
 	upcoming: "/upcoming",
 	toprated: "/toprated",
 	watchlist: "/watchlist",
-	detail: "",
 	login: "/signin",
 	register: "/signup"
 };
