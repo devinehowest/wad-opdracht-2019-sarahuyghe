@@ -17,7 +17,6 @@ mongoose
     console.log('Error, exiting', e);
     process.exit();
   });
-
 const app = express();
 
 app.use(express.static(path.resolve(__dirname, '../client/build')));
