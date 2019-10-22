@@ -1,41 +1,33 @@
 class Api {
-	apiKey = 62b6ebfe3d6498b7c85dfc5764245b5d;
+	apiKey = "62b6ebfe3d6498b7c85dfc5764245b5d";
 	constructor(entity) {
 		this.entity = entity;
 	}
 
 	getAllMovies = async () => {
 		const r = await fetch(
-			`https://api.themoviedb.org/3/movie/popular?api_key=${
-				this.apiKey
-			}&language=en-US&page=1`
+			`https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=en-US&page=1`
 		);
 		return await r.json();
 	};
 
 	getAllMoviesUpcoming = async () => {
 		const r = await fetch(
-			`https://api.themoviedb.org/3/movie/upcoming?api_key=${
-				this.apiKey
-			}&language=en-US&page=1`
+			`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.apiKey}&language=en-US&page=1`
 		);
 		return await r.json();
 	};
 
 	getAllMoviesTopRating = async () => {
 		const r = await fetch(
-			`https://api.themoviedb.org/3/movie/top_rated?api_key=${
-				this.apiKey
-			}&language=en-US&page=1`
+			`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}&language=en-US&page=1`
 		);
 		return await r.json();
 	};
 
 	getDetailMovie = async movieId => {
 		const r = await fetch(
-			`https://api.themoviedb.org/3/movie/${movieId}?api_key=${
-				this.apiKey
-			}&language=en-US`
+			`https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.apiKey}&language=en-US`
 		);
 		return await r.json();
 	};
