@@ -33,7 +33,6 @@
 		"@storybook/addon-actions": "^5.0.0",
 		"@storybook/addon-links": "^5.0.0",
 		"@storybook/addons": "^5.0.0",
-		"@storybook/react": "^5.0.0",
-		"babel-loader": "^8.0.5"
+		"@storybook/react": "^5.0.0"
 	}
 }
